@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>record</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <table
+            id="dataTable"
+            class="table table-striped table-bordered"
+            style="width: 100%"
+          >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>USER</th>
+                <th>COUNTRY</th>
+                <th>STATE</th>
+                <th>GENDER</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"
+    ></script>
+
+    <script>
+      let url = "http://localhost:3000/api/users";
+      $(document).ready(function () {
+        $("#dataTable").DataTable({
+          ajax: {
+            url: url,
+            dataSrc: "",
+          },
+          columns: [
+            { data: "id" },
+            { data: "user" },
+            { data: "country" },
+            { data: "state" },
+          ],
+          columnsDef: "",
+        });
+      });
+    </script>
+  </body>
+</html>
